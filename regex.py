@@ -27,17 +27,14 @@ def find_word(string_list):
 
     # define the regular expression
     regex = "\w+\d{3}\w+"
+    # regex_a = r'\b([a-zA-z]+\d{3}([A-za-z]+)'
 
     # loop through each line of the string list 
     # find all the words that match the regular expression in each line
     # loop through the found words and add the words to your empty list 
     for line in string_list:
         res = re.findall(regex, line)
-        # if res != []:
-        #     print(res)
         for word in res:
-        #     start_withBET = re.search("^[B, E, T].*", word)
-        #     if start_withBET is not None:
             three_digit_nums.append(word)
 
     #return the list of all words that start with the letter B, E, or T
@@ -48,17 +45,25 @@ def find_days(string_list):
     """ Return a list of days from the list of strings the dates format in the text are MM/DD/YYYY. """  
 
     # initialize an empty list
+    days = []
 
     # define the regular expression
+    regex = "\d{1, 2}\/\d{1, 2}\/\d{4}"
+    regex_a = "\b\d{1, 2}[\/](\d{1,2})[\/]/d{4}"
 
     # loop through each line of the string list
-    
     # find all the dates that match the regular expression in each line
-    
-    # loop through the found dates and only add the days to your empty list 
+    # loop through the found dates and only add the days to your empty list
+    for line in string_list:
+        res = re.findall(regex_a, line) 
+        if res != []:
+            print(res)
+
+        for date in res:
+            days.append(date[3:5])
     
     #return the list of days
-    pass
+    return days
 
 def find_domains(string_list):
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
