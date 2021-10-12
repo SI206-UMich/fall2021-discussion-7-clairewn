@@ -23,17 +23,25 @@ def find_word(string_list):
     """ Return a list of words that contain three digit numbers in the middle. """
 
     # initialize an empty list
+    three_digit_nums = []
 
     # define the regular expression
+    regex = "\w+\d{3}\w+"
 
     # loop through each line of the string list 
-
     # find all the words that match the regular expression in each line
-    
     # loop through the found words and add the words to your empty list 
+    for line in string_list:
+        res = re.findall(regex, line)
+        # if res != []:
+        #     print(res)
+        for word in res:
+        #     start_withBET = re.search("^[B, E, T].*", word)
+        #     if start_withBET is not None:
+            three_digit_nums.append(word)
 
     #return the list of all words that start with the letter B, E, or T
-    pass
+    return three_digit_nums
 
 
 def find_days(string_list):
