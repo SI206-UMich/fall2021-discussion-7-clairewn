@@ -56,8 +56,6 @@ def find_days(string_list):
     # loop through the found dates and only add the days to your empty list
     for line in string_list:
         res = re.findall(regex_a, line) 
-        if res != []:
-            print(res)
 
         for date in res:
             days.append(date[3:5])
@@ -69,19 +67,22 @@ def find_domains(string_list):
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
 
     # initialize an empty list
+    domains = []
 
     # define the regular expression
+    regex = ""
 
     # loop through each line of the string list
-
     # find all the domains that match the regular expression in each line
-
     # loop through the found domains
-
-    # get the domain name by splitting the (//) after the https or http to get the website name
-    # then strip the www. to get only the domain name
-
-    # add the domains to your empty list
+   
+    for line in string_list:
+        res = re.findall(regex, line)
+        for domain in res:
+             # get the domain name by splitting the (//) after the https or http to get the website name
+            # then strip the www. to get only the domain name
+            # add the domains to your empty list
+            domains.append(domain)
     
     #return the list of domains
     pass
