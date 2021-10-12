@@ -70,7 +70,7 @@ def find_domains(string_list):
     domains = []
 
     # define the regular expression
-    regex = ""
+    regex = r"https?://[\w.]+"
 
     # loop through each line of the string list
     # find all the domains that match the regular expression in each line
@@ -78,7 +78,8 @@ def find_domains(string_list):
    
     for line in string_list:
         res = re.findall(regex, line)
-        for domain in res:
+        for i in res:
+            domain = i.split('//')[1].strip('www.')
              # get the domain name by splitting the (//) after the https or http to get the website name
             # then strip the www. to get only the domain name
             # add the domains to your empty list
